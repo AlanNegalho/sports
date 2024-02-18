@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <header>
+            
+        </header>
+        <h1>Times</h1>
+        <br>
+        
+        {% if not jogadores %}
+        Ops, você não tem nenhum cadastrado
+        {% else %}
+        <br>
+        {% for jogadoress in jogadores %}
+        <div>
+            <div>
+                Nome: {{jogadoress.nome}}<br>
+                Idade: {{jogadoress.idade}}<br>
+                Posição: {{jogadoress.posicao}}<br>
+                Numero: {{jogadoress.numero}}<br>
+                Time: {{jogadoress.time}}<br>
+                Nacionalidade: {{jogadoress.nacionalidade}}<br>
+                <br>
+                <a href="{% url 'update' id=jogadoress.id %}">Editar</a>
+                <a href="{% url 'delete' id=jogadoress.id %}">Excluir</a>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <button><a href="{% url 'create' %}">Cadastrar</a></button>
+    </main>
+</body>
+
+</html>

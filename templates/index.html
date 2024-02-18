@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Sports Website</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<style>
+
+
+</style> 
+
+
+<body>
+    <header>
+        <h1>Bem-vindo ao site de esportes futebol</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'times'%}">Home</a></li>
+            <li><a href="{% url 'create' %}">Cadastrar</a></li>
+            <li><a href="#">Players</a></li>
+            <li><a href="#">Matches</a></li>
+            <li><a href="#">News</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% comment %} <section>
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id ultrices ultricies, nisl nunc tincidunt nunc, id tincidunt nunc nisl id lectus. Sed vitae nunc auctor, aliquet nunc id, aliquam nunc. Sed id nunc auctor, aliquet nunc id, aliquam nunc.</p>
+        </section> {% endcomment %}
+
+        <h1>jogadores</h1>
+        <section class="section-card">
+           
+        <br>
+        
+        {% if not jogadores %}
+        Ops, você não tem nenhum cadastrado
+        {% else %}
+        <br>
+        {% for jogadoress in jogadores %}
+        <div>
+            <div>
+                Nome: {{jogadoress.nome}}<br>
+                Idade: {{jogadoress.idade}}<br>
+                Posição: {{jogadoress.posicao}}<br>
+                Numero: {{jogadoress.numero}}<br>
+                Time: {{jogadoress.time}}<br>
+                Nacionalidade: {{jogadoress.nacionalidade}}<br>
+                <br>
+                <button class= 'editar'><a href="{% url 'update' id=jogadoress.id %}">Editar</a></button>
+                <button class= 'excluir'><a href="{% url 'delete' id=jogadoress.id %}">Excluir</a></button>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+
+          
+        </section>
+        <button class= 'cadastro-time'><a href="{% url 'create' %}">Cadastrar</a></button> 
+    </main>
+
+    <footer>
+        <p>&copy; 2022 Site de esportes futebol. Todos os direitos reservados.</p>
+    </footer>
+
+
+
+
+</body>
+</html>

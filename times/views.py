@@ -5,7 +5,7 @@ from times.models import Jogadores
 # Create your views here.
 def times(request):
     jogadores = Jogadores.objects.all()
-    return render(request, 'times/time.html', {'jogadores': jogadores})
+    return render(request, 'index.html', {'jogadores': jogadores})
 
 def create(request):
     if request.method == 'POST':
@@ -15,7 +15,7 @@ def create(request):
             return redirect('times')
     else:
         form = JogadoresForm()
-    return render(request, 'times/create.html', {'form': form})
+    return render(request, 'jogadores/create.html', {'form': form})
 
 def update(request, id):
     jogador = Jogadores.objects.get(id=id)
@@ -23,7 +23,7 @@ def update(request, id):
     if form.is_valid():
         form.save()
         return redirect('times')
-    return render(request, 'times/update.html', {'form': form, 'jogador': jogador})
+    return render(request, 'jogadores/update.html', {'form': form, 'jogador': jogador})
 
 def delete(request, id):
     jogador = Jogadores.objects.get(id=id)
