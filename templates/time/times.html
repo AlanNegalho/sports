@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<header>
+    <h1>Times</h1>
+</header>
+
+<body>
+
+    <main>
+    <section class="section-card">
+        {% if not times %}
+        Ops, você não tem nenhum cadastrado
+        {% else %}
+        <br>
+        {% for time in times %}
+        <div>
+        <div>
+        Nome: {{ time.nome }}<br>
+        Tecnico: {{ time.tecnico }}<br>
+        Cidade: {{ time.cidade}}<br>
+        Estado: {{ time.estado}}<br>
+        Pais: {{ time.pais}}<br>
+        <br>
+        <button class= 'editar'><a href="{% url 'update_time' id=time.id %}">Editar</a></button>
+        <button class= 'excluir'><a href="{% url 'delete_time' id=time.id %}">Excluir</a></button>
+        </div>
+        </div>
+        <br>
+        {% endfor %}
+        {% endif %}
+        <br>
+        </section>
+        <button class= 'cadastro-time'><a href="{% url 'create_time' %}">Cadastrar</a></button>
+
+       
+    </main>
+
+</html>

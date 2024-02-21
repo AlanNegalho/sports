@@ -44,7 +44,7 @@ def create_time(request):
             return redirect('times')
     else:
         form = TimesForm()
-    return render(request, 'time/create.html', {'form': form})
+    return render(request, 'time/creat_time.html', {'form': form})
 
 def update_time(request, id):
     times = Times.objects.get(id=id)
@@ -52,7 +52,7 @@ def update_time(request, id):
     if form.is_valid():
         form.save()
         return redirect('times')
-    return render(request, 'time/update.html ', {'form': form, 'times': times})
+    return render(request, 'time/update_time.html', {'form': form, 'times': times})
 
 def delete_time(request, id):
     times = Times.objects.get(id = id)
