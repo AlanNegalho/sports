@@ -10,16 +10,20 @@
 
 <body>
     <main>
-        <h1>Times</h1>
+        <h1>Jogadores</h1>
         <br>
-        
+        <br>
+        Quantidade de Jogadores: {{jogadores|length}} <br>
+        <section class="section-card">
         {% if not jogadores %}
         Ops, você não tem nenhum cadastrado
         {% else %}
         <br>
         {% for jogadoress in jogadores %}
+         
         <div>
             <div>
+               
                 Nome: {{jogadoress.nome}}<br>
                 Idade: {{jogadoress.idade}}<br>
                 Posição: {{jogadoress.posicao}}<br>
@@ -27,14 +31,17 @@
                 Time: {{jogadoress.time}}<br>
                 Nacionalidade: {{jogadoress.nacionalidade}}<br>
                 <br>
-                <a href="{% url 'update' id=jogadoress.id %}">Editar</a>
-                <a href="{% url 'delete' id=jogadoress.id %}">Excluir</a>
+                <button class= 'editar'><a href="{% url 'update' id=jogadoress.id %}">Editar</a></button>
+                <button class= 'excluir'><a href="{% url 'delete' id=jogadoress.id %}">Excluir</a></button>
             </div>
         </div>
         {% endfor %}
         {% endif %}
 
-        <button><a href="{% url 'create' %}">Cadastrar</a></button>
+        </section> 
+
+        <button class= 'cadastro-time'><a href="{% url 'create' %}">Cadastrar</a></button>
+
     </main>
 </body>
 

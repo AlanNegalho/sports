@@ -5,7 +5,12 @@ from times.models import Jogadores, Times
 # Create your views here.
 def atletas(request):
     jogadores = Jogadores.objects.all()
-    return render(request, 'index.html', {'jogadores': jogadores})
+    times = Times.objects.all()
+    return render(request, 'index.html', {'jogadores': jogadores, 'times': times})
+
+def jogador(request):
+    jogadores = Jogadores.objects.all()
+    return render(request, 'jogadores/jogadores.html', {'jogadores': jogadores})
 
 def create(request):
     if request.method == 'POST':

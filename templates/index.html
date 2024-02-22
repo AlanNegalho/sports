@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
+<style>
+.contador{
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.contador:hover{
+    background-color: #e6e6e6;
+}
+</style>
+
 <body>
     <header>
         <h1>Bem-vindo ao site de esportes futebol</h1>
@@ -15,10 +30,9 @@
     <nav>
         <ul>
             <li><a href="{% url 'atletas' %}">Home</a></li>
-            <li><a href="{% url 'create' %}">Cadastrar</a></li>
-            <li><a href="#">Players</a></li>
+            <li><a href="{% url 'jogador' %}">Jogadores</a></li>
             <li><a href="{% url 'times' %}">Times</a></li>
-            <li><a href="#">News</a></li>
+            
         </ul>
     </nav>
 
@@ -28,18 +42,38 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id ultrices ultricies, nisl nunc tincidunt nunc, id tincidunt nunc nisl id lectus. Sed vitae nunc auctor, aliquet nunc id, aliquam nunc. Sed id nunc auctor, aliquet nunc id, aliquam nunc.</p>
         </section> {% endcomment %}
 
-        <h1>jogadores</h1>
-        <section class="section-card">
-           
+        <h1>Fut Fut</h1>
         <br>
+        <section class="section-card">
+        <div>
+        <a href="{% url 'jogador' %}"> <div class= contador > 
+        {{ jogadores|length }} Jogadores Cadastrados</div><br>
+        Click Para mas informações
+        </a></div>
+        <br>
+        <br>
+        <div>
+        <a href="{% url 'times' %}"> <div class= contador > 
+        {{ times|length }} Times Cadastrados</div><br>
+        Click Para mas informações
+        </a></div>
         
+        </section>
+      
+
+        {% comment %} <section class="section-card">
+
+        <br>
+        Quantidade de Jogadores: {{jogadores|length}} <br>
         {% if not jogadores %}
         Ops, você não tem nenhum cadastrado
         {% else %}
         <br>
         {% for jogadoress in jogadores %}
+         
         <div>
             <div>
+               
                 Nome: {{jogadoress.nome}}<br>
                 Idade: {{jogadoress.idade}}<br>
                 Posição: {{jogadoress.posicao}}<br>
@@ -56,8 +90,10 @@
 
 
           
-        </section>
-        <button class= 'cadastro-time'><a href="{% url 'create' %}">Cadastrar</a></button> 
+        </section>  {% endcomment %}
+
+
+        {% comment %} <button class= 'cadastro-time'><a href="{% url 'create' %}">Cadastrar</a></button>  {% endcomment %}
     </main>
 
     <footer>
