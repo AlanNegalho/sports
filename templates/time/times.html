@@ -2,42 +2,64 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Sports Website</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
-<header>
-    <h1>Times</h1>
-</header>
 
 <body>
+    <header>
+        <h1>Bem-vindo ao site de esportes futebol</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'atletas' %}">Home</a></li>
+            <li><a href="{% url 'jogador' %}">Jogadores</a></li>
+            <li><a href="{% url 'times' %}">Times</a></li>
+            
+        </ul>
+    </nav>
 
     <main>
-    <section class="section-card">
-        {% if not times %}
-        Ops, você não tem nenhum cadastrado
-        {% else %}
-        <br>
-        {% for time in times %}
-        <div>
-        <div>
-        Nome: {{ time.nome }}<br>
-        Tecnico: {{ time.tecnico }}<br>
-        Cidade: {{ time.cidade}}<br>
-        Estado: {{ time.estado}}<br>
-        Pais: {{ time.pais}}<br>
-        <br>
-        <button class= 'editar'><a href="{% url 'update_time' id=time.id %}">Editar</a></button>
-        <button class= 'excluir'><a href="{% url 'delete_time' id=time.id %}">Excluir</a></button>
-        </div>
-        </div>
-        <br>
-        {% endfor %}
-        {% endif %}
-        <br>
-        </section>
-        <button class= 'cadastro-time'><a href="{% url 'create_time' %}">Cadastrar</a></button>
 
-       
+    <h1>Times</h1>
+
+    <div class = "buton-cardastro">
+         <button class= 'cadastro-time'><a href="{% url 'create' %}">Cadastrar</a></button>
+    </div>
+
+    <section class="section-card">
+    {% if not times %}
+    Ops, você não tem nenhum cadastrado
+    {% else %}
+    <br>
+    {% for time in times %}
+    <div>
+
+    <div>
+    Nome: {{ time.nome }}<br>
+    Tecnico: {{ time.tecnico }}<br>
+    Cidade: {{ time.cidade}}<br>
+    Estado: {{ time.estado}}<br>
+    Pais: {{ time.pais}}<br>
+    <br>
+    <button class= 'editar'><a href="{% url 'update_time' id=time.id %}">Editar</a></button>
+    <button class= 'excluir'><a href="{% url 'delete_time' id=time.id %}">Excluir</a></button>
+    </div>
+    </div>
+    <br>
+    {% endfor %}
+    {% endif %}
+    <br>
+    </section>
+ 
     </main>
+
+  
+        {% include "partials/footer.html" %}
+  
 
 </html>

@@ -4,16 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Sports Website</title>
     <link rel="stylesheet" href="/static/css/style.css">
-    <title>Document</title>
 </head>
 
 <body>
+    <header>
+        <h1>Bem-vindo ao site de esportes futebol</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'atletas' %}">Home</a></li>
+            <li><a href="{% url 'jogador' %}">Jogadores</a></li>
+            <li><a href="{% url 'times' %}">Times</a></li>
+            
+        </ul>
+    </nav>
+
     <main>
+
         <h1>Jogadores</h1>
-        <br>
-        <br>
-        Quantidade de Jogadores: {{jogadores|length}} <br>
+
+        <div class = "buton-cardastro">
+            <button class= 'cadastro-time'><a href="{% url 'create' %}">Cadastrar</a></button>
+        </div>
+
         <section class="section-card">
         {% if not jogadores %}
         Ops, você não tem nenhum cadastrado
@@ -40,9 +56,10 @@
 
         </section> 
 
-        <button class= 'cadastro-time'><a href="{% url 'create' %}">Cadastrar</a></button>
 
     </main>
 </body>
+
+    {% include "partials/footer.html" %}
 
 </html>

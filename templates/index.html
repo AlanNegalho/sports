@@ -8,18 +8,7 @@
 </head>
 
 <style>
-.contador{
-    background-color: #f2f2f2;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    width: 200px;
-    margin: 0 auto;
-    cursor: pointer;
-}
-.contador:hover{
-    background-color: #e6e6e6;
-}
+
 </style>
 
 <body>
@@ -60,48 +49,9 @@
         
         </section>
       
-
-        {% comment %} <section class="section-card">
-
-        <br>
-        Quantidade de Jogadores: {{jogadores|length}} <br>
-        {% if not jogadores %}
-        Ops, você não tem nenhum cadastrado
-        {% else %}
-        <br>
-        {% for jogadoress in jogadores %}
-         
-        <div>
-            <div>
-               
-                Nome: {{jogadoress.nome}}<br>
-                Idade: {{jogadoress.idade}}<br>
-                Posição: {{jogadoress.posicao}}<br>
-                Numero: {{jogadoress.numero}}<br>
-                Time: {{jogadoress.time}}<br>
-                Nacionalidade: {{jogadoress.nacionalidade}}<br>
-                <br>
-                <button class= 'editar'><a href="{% url 'update' id=jogadoress.id %}">Editar</a></button>
-                <button class= 'excluir'><a href="{% url 'delete' id=jogadoress.id %}">Excluir</a></button>
-            </div>
-        </div>
-        {% endfor %}
-        {% endif %}
-
-
-          
-        </section>  {% endcomment %}
-
-
-        {% comment %} <button class= 'cadastro-time'><a href="{% url 'create' %}">Cadastrar</a></button>  {% endcomment %}
     </main>
 
-    <footer>
-        <p>&copy; 2022 Site de esportes futebol. Todos os direitos reservados.</p>
-    </footer>
-
-
-
+   {% include "partials/footer.html" %}
 
 </body>
 </html>
