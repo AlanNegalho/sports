@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from times.forms import JogadoresForm, TimesForm
 from times.models import Jogadores, Times
 
-# Create your views here.
+# Jogadores
 def atletas(request):
     jogadores = Jogadores.objects.all()
     times = Times.objects.all()

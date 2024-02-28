@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
+
+{% include 'partials/navbar.html' %}
 
 <body>
     <h2>Editar Dados</h2>
@@ -15,10 +18,13 @@
             {{ form.as_p }}
         </div>
         <div class="d-flex justify-content-end">
-            <a class="btn btn-danger" href="javascript:history.back()">Cancelar</a>
-            <button type="submit" class="save btn btn-success">Salvar</button>
+            <button class='excluir' href="javascript:history.back()">Cancelar</button>
+            <button type="submit" class='creat'>Cadastrar</button>
         </div>
     </form>
+
+    {% include "partials/footer.html" %}
+
 </body>
 
 </html>
